@@ -1,4 +1,5 @@
 import { ListItem, ListItemButton } from "@mui/material"
+import { Divider } from "@mui/material"
 import "../css/MoviePreview.css"
 
 export default function MoviePreview({ movie, selectedState }) {
@@ -7,24 +8,31 @@ export default function MoviePreview({ movie, selectedState }) {
     setSelectedMovie(movie.id)
   }
   return (
-    <ListItem sx={{ height: "140px" }}>
-      <ListItemButton
-        onClick={handleClick}
-        selected={selectedMovie === movie.id}
-        sx={{ borderRadius: "15px" }}
-      >
-        <img
-          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-          alt="movie poster"
-        />
+    <>
+      <ListItem sx={{ height: "140px" }}>
+        <ListItemButton
+          onClick={handleClick}
+          selected={selectedMovie === movie.id}
+          sx={{ borderRadius: "15px" }}
+        >
+          <img
+            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+            alt="movie poster"
+          />
 
-        <h3>
-          {movie.title}
-          <span>{` (${movie.release_date.slice(0, 4)})`}</span>
-        </h3>
+          <h3>
+            {movie.title}
+            <span>{` (${movie.release_date.slice(0, 4)})`}</span>
+          </h3>
 
-        <strong>⭐{movie.vote_average}</strong>
-      </ListItemButton>
-    </ListItem>
+          <strong>⭐{movie.vote_average}</strong>
+        </ListItemButton>
+      </ListItem>
+      <Divider
+        variant="middle"
+        component="li"
+        sx={{ maxWidth: "90%", marginLeft: "5%", marginRight: "5%" }}
+      />
+    </>
   )
 }

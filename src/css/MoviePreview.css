@@ -4,6 +4,7 @@ img {
   width: 80px;
   border-radius: 10px;
   margin-right: 1rem;
+  background-color: rgb(184, 184, 184);
 }
 
 strong {
