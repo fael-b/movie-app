@@ -4,11 +4,11 @@ import Sidebar from "./components/Sidebar"
 import MovieDetails from "./components/MovieDetails"
 
 function App() {
-  const [selectedMovie, setSelectedMovie] = React.useState()
+  const selectedState = React.useState()
   return (
     <div className="App">
-      <Sidebar select={setSelectedMovie} />
-      <MovieDetails movieId={selectedMovie} />
+      <Sidebar selectedState={selectedState} />
+      <MovieDetails movieId={selectedState[0]} />
     </div>
   )
 }
