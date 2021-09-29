@@ -1,13 +1,16 @@
 import React from "react"
-import moviesRaw from "../movies.json"
-const moviesDefault = moviesRaw.results
 
 export default function MovieDetails({ movieId }) {
-  return (
-    <div>
-      {movieId
-        ? moviesDefault.find((movie) => movie.id === movieId).title
-        : "Please select a movie."}
-    </div>
-  )
+  const [movieInfo, setMovieInfo] = React.useState()
+  React.useEffect(() => {
+    if (movieId) {
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=49abe0e8aeaa4e8f9ff7476817dee548`
+      )
+        .then((res) => res.json())
+        .then((movie) => setMovieInfo(movie))
+    }
+  }, [movieId])
+
+  return <div>{movieInfo ? movieInfo.title : "Please select a movie."}</div>
 }

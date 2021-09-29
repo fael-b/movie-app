@@ -16,21 +16,28 @@ export default function MoviePreview({ movie, selectedState }) {
           sx={{ borderRadius: "15px" }}
         >
           <img
-            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+                : "/default_movie.png"
+            }
             alt="movie poster"
           />
 
           <h3>
             {movie.title}
-            <span>{` (${movie.release_date.slice(0, 4)})`}</span>
+            <span>
+              {movie.release_date
+                ? ` (${movie.release_date.slice(0, 4)})`
+                : " (Unspecified)"}
+            </span>
           </h3>
 
-          <strong>⭐{movie.vote_average}</strong>
+          <strong>⭐{movie.vote_average ? movie.vote_average : "?"}</strong>
         </ListItemButton>
       </ListItem>
       <Divider
         variant="middle"
-        component="li"
         sx={{ maxWidth: "90%", marginLeft: "5%", marginRight: "5%" }}
       />
     </>

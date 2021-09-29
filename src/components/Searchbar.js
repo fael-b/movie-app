@@ -1,16 +1,24 @@
 import React from "react"
-import moviesRaw from "../movies.json"
-const moviesDefault = moviesRaw.results
+import { TextField } from "@mui/material"
+import "../css/Searchbar.css"
 
 export default function Searchbar({ setMovies }) {
   const [movieName, setMovieName] = React.useState("")
 
   React.useEffect(() => {
-    setMovies(
-      moviesDefault.filter((movie) => {
-        return movie.title.toLowerCase().includes(movieName.toLowerCase())
-      })
-    )
+    if (movieName) {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=49abe0e8aeaa4e8f9ff7476817dee548&query=${movieName}&page=1`
+      )
+        .then((res) => res.json())
+        .then((movieList) => setMovies(movieList.results))
+    }
+
+    //setMovies(
+    //  moviesDefault.filter((movie) => {
+    //    return movie.title.toLowerCase().includes(movieName.toLowerCase())
+    //  })
+    //)
   }, [movieName, setMovies])
 
   function handleChange(e) {
@@ -18,8 +26,8 @@ export default function Searchbar({ setMovies }) {
     setMovieName(e.target.value)
   }
   return (
-    <div>
-      <input type="text" value={movieName} onChange={handleChange} />
+    <div className="search">
+      <TextField value={movieName} onChange={handleChange} />
     </div>
   )
 }
