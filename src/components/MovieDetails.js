@@ -1,12 +1,12 @@
 import BackdropImage from "./MovieDetails/BackdropImage"
-import React from "react"
-import "../css/MovieDetails.css"
 import Title from "./MovieDetails/Title"
 import Subdetails from "./MovieDetails/Subdetails"
 import Genres from "./MovieDetails/Genres"
 import Rating from "./MovieDetails/Rating"
 import Overview from "./MovieDetails/Overview"
 import Poster from "./MovieDetails/Poster"
+import React from "react"
+import "../css/MovieDetails.css"
 
 export default function MovieDetails({ movieId }) {
   const [movieInfo, setMovieInfo] = React.useState()
