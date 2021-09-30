@@ -1,4 +1,5 @@
 import { Chip, List } from "@mui/material"
+import BackdropImage from "./MovieDetails/BackdropImage"
 import React from "react"
 import "../css/MovieDetails.css"
 
@@ -16,17 +17,7 @@ export default function MovieDetails({ movieId }) {
 
   return (
     <div className="details-container">
-      <div
-        style={
-          movieInfo?.backdrop_path
-            ? {
-                backgroundImage: `url('https://image.tmdb.org/t/p/original${movieInfo.backdrop_path}')`,
-                filter: "",
-              }
-            : {}
-        }
-        className="movie-backdrop"
-      ></div>
+      <BackdropImage backdropUrl={movieInfo?.backdrop_path} />
       {movieInfo ? (
         <div className="info-container">
           <div className="info-block">
