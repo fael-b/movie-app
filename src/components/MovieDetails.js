@@ -16,6 +16,17 @@ export default function MovieDetails({ movieId }) {
 
   return (
     <div className="details-container">
+      <div
+        style={
+          movieInfo?.backdrop_path
+            ? {
+                backgroundImage: `url('https://image.tmdb.org/t/p/original${movieInfo.backdrop_path}')`,
+                filter: "",
+              }
+            : {}
+        }
+        className="movie-backdrop"
+      ></div>
       {movieInfo ? (
         <div className="info-container">
           <div className="info-block">
