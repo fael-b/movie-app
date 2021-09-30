@@ -7,6 +7,12 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(
+    to left,
+    rgba(231, 231, 231, 0.9) 150px,
+    rgba(216, 216, 216, 0.5) 100%
+  );
+  background-size: cover;
 }
 
 .movie-poster {
@@ -18,6 +24,15 @@
 
 .movie-poster:hover {
   filter: brightness(0.8);
+}
+
+.movie-backdrop {
+  z-index: -1;
+  position: fixed;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  filter: blur(5px);
 }
 
 .info-container {
