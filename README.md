@@ -3,6 +3,8 @@
 The goal of this project is to create a simple movie browsing app using React.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+⏩[Live Demo](https://movie-app-fael-b.vercel.app/)
+
 ![movie-app screenshot](https://i.ibb.co/KwgSy5V/movie-app.png)
 
 ### Built With
