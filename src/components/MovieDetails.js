@@ -1,9 +1,10 @@
-import { Chip, List } from "@mui/material"
 import BackdropImage from "./MovieDetails/BackdropImage"
 import React from "react"
 import "../css/MovieDetails.css"
 import MovieTitle from "./MovieDetails/MovieTitle"
 import MovieSubdetails from "./MovieDetails/MovieSubdetails"
+import MovieGenres from "./MovieDetails/MovieGenres"
+import MovieRating from "./MovieDetails/MovieRating"
 
 export default function MovieDetails({ movieId }) {
   const [movieInfo, setMovieInfo] = React.useState()
@@ -33,25 +34,8 @@ export default function MovieDetails({ movieId }) {
                 language={movieInfo.original_language}
                 runtime={movieInfo.runtime}
               />
-              <List>
-                {movieInfo.genres ? (
-                  movieInfo.genres.map((genre) => (
-                    <Chip
-                      key={genre.id}
-                      label={genre.name}
-                      sx={{ marginLeft: "5px", marginBottom: "5px" }}
-                    />
-                  ))
-                ) : (
-                  <Chip label="Unknown genre" />
-                )}
-              </List>
-              <h2 className="movie-rating">
-                ⭐
-                {movieInfo.vote_average
-                  ? movieInfo.vote_average
-                  : " No rating yet"}
-              </h2>
+              <MovieGenres genres={movieInfo.genres} />
+              <MovieRating rating={movieInfo.vote_average} />
               <h3 className="movie-overview-title">Overview</h3>
               <p className="movie-overview">
                 {movieInfo.overview
