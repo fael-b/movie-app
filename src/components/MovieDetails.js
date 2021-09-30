@@ -4,6 +4,7 @@ import Subdetails from "./MovieDetails/Subdetails"
 import Genres from "./MovieDetails/Genres"
 import Rating from "./MovieDetails/Rating"
 import Overview from "./MovieDetails/Overview"
+import Cast from "./MovieDetails/Cast"
 import Poster from "./MovieDetails/Poster"
 import React from "react"
 import "../css/MovieDetails.css"
@@ -39,6 +40,7 @@ export default function MovieDetails({ movieId }) {
               <Genres genres={movieInfo.genres} />
               <Rating rating={movieInfo.vote_average} />
               <Overview overview={movieInfo.overview} />
+              <Cast movieId={movieId} />
             </div>
             <Poster posterUrl={movieInfo.poster_path} />
           </div>

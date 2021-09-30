@@ -1,4 +1,5 @@
 import React from "react"
+import Actor from "./Actor"
 
 export default function MovieCast({ movieId }) {
   const [castList, setCastList] = React.useState([])
@@ -13,12 +14,15 @@ export default function MovieCast({ movieId }) {
   }, [movieId])
 
   return (
-    <div>
-      {castList ? (
-        castList.map((actor) => <h1>{actor.name}</h1>)
-      ) : (
-        <h1>Unknown cast</h1>
-      )}
-    </div>
+    <>
+      <h3 className="sub-title">Cast</h3>
+      <ul className="cast">
+        {castList ? (
+          castList.map((actor) => <Actor key={actor.id} actor={actor} />)
+        ) : (
+          <h1>Unknown cast</h1>
+        )}
+      </ul>
+    </>
   )
 }
