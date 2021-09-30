@@ -5,6 +5,7 @@ import MovieTitle from "./MovieDetails/MovieTitle"
 import MovieSubdetails from "./MovieDetails/MovieSubdetails"
 import MovieGenres from "./MovieDetails/MovieGenres"
 import MovieRating from "./MovieDetails/MovieRating"
+import MovieOverview from "./MovieDetails/MovieOverview"
 
 export default function MovieDetails({ movieId }) {
   const [movieInfo, setMovieInfo] = React.useState()
@@ -36,12 +37,7 @@ export default function MovieDetails({ movieId }) {
               />
               <MovieGenres genres={movieInfo.genres} />
               <MovieRating rating={movieInfo.vote_average} />
-              <h3 className="movie-overview-title">Overview</h3>
-              <p className="movie-overview">
-                {movieInfo.overview
-                  ? movieInfo.overview
-                  : "No overview available."}
-              </p>
+              <MovieOverview overview={movieInfo.overview} />
             </div>
             <img
               className="movie-poster"
