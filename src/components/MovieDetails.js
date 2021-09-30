@@ -3,6 +3,7 @@ import BackdropImage from "./MovieDetails/BackdropImage"
 import React from "react"
 import "../css/MovieDetails.css"
 import MovieTitle from "./MovieDetails/MovieTitle"
+import MovieSubdetails from "./MovieDetails/MovieSubdetails"
 
 export default function MovieDetails({ movieId }) {
   const [movieInfo, setMovieInfo] = React.useState()
@@ -27,20 +28,11 @@ export default function MovieDetails({ movieId }) {
                 title={movieInfo.title}
                 releaseDate={movieInfo.release_date}
               />
-              <h3 className="movie-subdetails">
-                📅
-                {movieInfo.release_date
-                  ? " " + movieInfo.release_date + "  "
-                  : " Unknown release date  "}
-                ● 🗺️
-                {movieInfo.original_language
-                  ? " " + movieInfo.original_language.toUpperCase() + "  "
-                  : " Unspecified origin  "}
-                ● ⌛
-                {movieInfo.runtime
-                  ? " " + movieInfo.runtime + " min  "
-                  : " Unknown runtime  "}
-              </h3>
+              <MovieSubdetails
+                releaseDate={movieInfo.release_date}
+                language={movieInfo.original_language}
+                runtime={movieInfo.runtime}
+              />
               <List>
                 {movieInfo.genres ? (
                   movieInfo.genres.map((genre) => (
