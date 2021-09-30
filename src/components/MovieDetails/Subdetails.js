@@ -1,4 +1,4 @@
-export default function MovieSubdetails({ releaseDate, language, runtime }) {
+export default function Subdetails({ releaseDate, language, runtime }) {
   return (
     <h3 className="movie-subdetails">
       📅

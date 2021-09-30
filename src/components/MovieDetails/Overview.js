@@ -1,4 +1,4 @@
-export default function MovieOverview({ overview }) {
+export default function Overview({ overview }) {
   return (
     <>
       <h3 className="movie-overview-title">Overview</h3>

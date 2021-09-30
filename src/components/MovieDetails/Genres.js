@@ -1,6 +1,6 @@
 import { List, Chip } from "@mui/material"
 
-export default function MovieGenres({ genres }) {
+export default function Genres({ genres }) {
   return (
     <List>
       {genres ? (

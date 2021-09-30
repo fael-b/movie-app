@@ -1,4 +1,4 @@
-export default function MovieTitle({ title, releaseDate }) {
+export default function Title({ title, releaseDate }) {
   return (
     <h1 className="movie-title">
       {title ? title : "Unknown name"}

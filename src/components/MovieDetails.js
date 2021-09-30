@@ -1,11 +1,12 @@
 import BackdropImage from "./MovieDetails/BackdropImage"
 import React from "react"
 import "../css/MovieDetails.css"
-import MovieTitle from "./MovieDetails/MovieTitle"
-import MovieSubdetails from "./MovieDetails/MovieSubdetails"
-import MovieGenres from "./MovieDetails/MovieGenres"
-import MovieRating from "./MovieDetails/MovieRating"
-import MovieOverview from "./MovieDetails/MovieOverview"
+import Title from "./MovieDetails/Title"
+import Subdetails from "./MovieDetails/Subdetails"
+import Genres from "./MovieDetails/Genres"
+import Rating from "./MovieDetails/Rating"
+import Overview from "./MovieDetails/Overview"
+import Poster from "./MovieDetails/Poster"
 
 export default function MovieDetails({ movieId }) {
   const [movieInfo, setMovieInfo] = React.useState()
@@ -26,28 +27,20 @@ export default function MovieDetails({ movieId }) {
           <BackdropImage backdropUrl={movieInfo.backdrop_path} />
           <div className="info-container">
             <div className="info-block">
-              <MovieTitle
+              <Title
                 title={movieInfo.title}
                 releaseDate={movieInfo.release_date}
               />
-              <MovieSubdetails
+              <Subdetails
                 releaseDate={movieInfo.release_date}
                 language={movieInfo.original_language}
                 runtime={movieInfo.runtime}
               />
-              <MovieGenres genres={movieInfo.genres} />
-              <MovieRating rating={movieInfo.vote_average} />
-              <MovieOverview overview={movieInfo.overview} />
+              <Genres genres={movieInfo.genres} />
+              <Rating rating={movieInfo.vote_average} />
+              <Overview overview={movieInfo.overview} />
             </div>
-            <img
-              className="movie-poster"
-              src={
-                movieInfo.poster_path
-                  ? `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`
-                  : "/default_movie.png"
-              }
-              alt="movie poster"
-            />
+            <Poster posterUrl={movieInfo.poster_path} />
           </div>
         </>
       ) : (
