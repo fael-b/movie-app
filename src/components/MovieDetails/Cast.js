@@ -20,7 +20,7 @@ export default function MovieCast({ movieId }) {
         {castList ? (
           castList.map((actor) => <Actor key={actor.id} actor={actor} />)
         ) : (
-          <h1>Unknown cast</h1>
+          <Actor />
         )}
       </ul>
     </>
