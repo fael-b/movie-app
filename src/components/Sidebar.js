@@ -9,7 +9,7 @@ const moviesDefault = moviesRaw.results
 export default function Sidebar({ selectedState }) {
   const [movies, setMovies] = React.useState(moviesDefault)
   return (
-    <nav>
+    <nav className="sidebar">
       <Searchbar setMovies={setMovies} />
       <List
         sx={{

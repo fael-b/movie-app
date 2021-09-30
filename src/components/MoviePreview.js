@@ -9,7 +9,7 @@ export default function MoviePreview({ movie, selectedState }) {
   }
   return (
     <>
-      <ListItem sx={{ height: "140px" }}>
+      <ListItem sx={{ height: "140px", minHeight: "140px" }}>
         <ListItemButton
           onClick={handleClick}
           selected={selectedMovie === movie.id}
@@ -35,7 +35,7 @@ export default function MoviePreview({ movie, selectedState }) {
           </h3>
 
           <strong className="preview-vote">
-            ⭐{movie.vote_average ? movie.vote_average : "?"}
+            ⭐{movie.vote_average ? movie.vote_average : "??"}
           </strong>
         </ListItemButton>
       </ListItem>
