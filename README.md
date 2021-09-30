@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - [React](https://reactjs.org/)
 - [MUI](https://mui.com/)
+- [The Movie Database API](https://www.themoviedb.org/documentation/api)
 
 ## Getting Started
 
