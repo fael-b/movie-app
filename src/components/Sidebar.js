@@ -14,7 +14,6 @@ export default function Sidebar({ selectedState }) {
       <List
         sx={{
           width: "100%",
-          bgcolor: "background.paper",
           overflowY: "scroll",
           height: "calc(100% - 116px)",
           maxHeight: "calc(100% - 116px)",

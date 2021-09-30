@@ -1,5 +1,12 @@
 import React from "react"
-import { TextField } from "@mui/material"
+import {
+  FormControl,
+  InputLabel,
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+} from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search"
 import "../css/Searchbar.css"
 
 export default function Searchbar({ setMovies }) {
@@ -13,12 +20,6 @@ export default function Searchbar({ setMovies }) {
         .then((res) => res.json())
         .then((movieList) => setMovies(movieList.results))
     }
-
-    //setMovies(
-    //  moviesDefault.filter((movie) => {
-    //    return movie.title.toLowerCase().includes(movieName.toLowerCase())
-    //  })
-    //)
   }, [movieName, setMovies])
 
   function handleChange(e) {
@@ -27,7 +28,25 @@ export default function Searchbar({ setMovies }) {
   }
   return (
     <div className="search">
-      <TextField value={movieName} onChange={handleChange} />
+      <FormControl variant="outlined">
+        <InputLabel htmlFor="outlined-start-adornment-search">
+          Search for the name of a movie
+        </InputLabel>
+        <OutlinedInput
+          id="outlined-start-adornment-search"
+          type="text"
+          value={movieName}
+          onChange={handleChange}
+          label="Search for the name of a movie"
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton edge="end">
+                <SearchIcon />
+              </IconButton>
+            </InputAdornment>
+          }
+        />
+      </FormControl>
     </div>
   )
 }

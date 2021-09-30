@@ -16,6 +16,7 @@ export default function MoviePreview({ movie, selectedState }) {
           sx={{ borderRadius: "15px" }}
         >
           <img
+            className="preview-poster"
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
@@ -26,14 +27,16 @@ export default function MoviePreview({ movie, selectedState }) {
 
           <h3>
             {movie.title}
-            <span>
+            <span className="preview-date">
               {movie.release_date
                 ? ` (${movie.release_date.slice(0, 4)})`
                 : " (Unspecified)"}
             </span>
           </h3>
 
-          <strong>⭐{movie.vote_average ? movie.vote_average : "?"}</strong>
+          <strong className="preview-vote">
+            ⭐{movie.vote_average ? movie.vote_average : "?"}
+          </strong>
         </ListItemButton>
       </ListItem>
       <Divider
