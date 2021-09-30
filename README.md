@@ -27,7 +27,11 @@ To run this app, you need to install Node.js and git:
    ```sh
    git clone https://github.com/fael-b/movie-app.git
    ```
-2. Install NPM packages
+2. Change the current directory to the cloned repo
+   ```sh
+   cd movie-app
+   ```
+3. Install NPM packages
    ```sh
    npm install
    ```
